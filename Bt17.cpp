@@ -8,6 +8,8 @@ int ktsnt(int n);
 int gtTG(int n);
 int gtTSL(int n);
 int gtTSNT(int n);
+int gtTBTSL(int n);
+int gtTBTSNT(int n);
 int main()
 {
 	//khau bao bien
@@ -25,7 +27,8 @@ int main()
 	gtTG(n);
 	gtTSL(n);
 	gtTSNT(n);
-	
+	gtTBTSL(n);
+	gtTBTSNT(n);
 	return 0;
 }
 void inGT(int n)
@@ -61,6 +64,7 @@ int gtCH(int n)
 			printf(" %d",c);
 		}
 	}
+	return 0;
 }
 
 int ktsnt(int n)
@@ -96,6 +100,7 @@ int gtTG(int n)
 		sum+=e;
 	}
 	printf("\nTong cac gia tri: %d",sum);
+	return 0;
 }
 int gtTSL(int n)
 {
@@ -109,5 +114,50 @@ int gtTSL(int n)
 	}
 	
 	printf("\ntong cac so le: %d",sum);
+	return 0;
 }
+int gtTSNT(int n)
+{
+    int g, sum=0;
+    for (g=0;g<=n;g++)
+    {
+		if(ktsnt(g)==1)
+		{
+		sum+=g;
+        }
+    }
+    printf("\ntong cac so nguyen to: %d",g);
+    return 0;
+}
+int gtTBTSL(int n)
+{
+	int h, dem=0,sum=0, kq;
+	for (h=1;h<=n;h+=2)
+	{
+		if(h%2!=0)
+		{
+			sum+=h;
+			dem++;	
+    	}
+    	kq=(float)sum / dem;
+	}
+	printf("\ntrung binh tong cac so le: %d",kq);
+	return 0;
+}
+int gtTBTSNT(int n)
+{
+	 int i, sum=0,dem=0, kq;
+    for (i=0;i<=n;i++)
+    {
+		if(ktsnt(i)==1)
+		{
+		sum+=i;
+		dem++;
+        }
+        kq=(float)sum / dem;
+	}
+    printf("\ntrung binh tong cac so nguyen to: %d",kq);
+    return 0;
+}
+
 
